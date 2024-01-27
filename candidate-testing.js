@@ -62,12 +62,12 @@ function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   console.log(`Alright cadet, let's see. You answered ${candidateAnswers.join(', ')} and the correct answers are ${correctAnswers.join(', ')}`);
 
-  let numOfCa = 5;
-  let numOfCanA = 0;
+  // let numOfCa = 5;
+  let numOfQuizQuestions = 0;
 
   for (let i = 0; i < candidateAnswers.length; i++) {
           if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
-            numOfCanA+=1;
+            numOfQuizQuestions+=1;
           }
            
       }
@@ -76,7 +76,7 @@ function gradeQuiz(candidateAnswers) {
       // console.log(numOfCanA);
       
     //TODO 3.2 use this variable to calculate the candidates score.
-grade = (numOfCanA/numOfCa) * 100;
+grade = (numOfQuizQuestions/candidateAnswers.length) * 100;
 let canStatus = '';
   if (grade < 80) {
     canStatus = "FAILED"
@@ -85,7 +85,7 @@ let canStatus = '';
   }
 
   // console.log(grade);
-  console.log(`>>> OVERALL GRADE:${grade} (${numOfCanA} of 5 responses correct)\n>>> Status: ${canStatus} <<<`);
+  console.log(`>>> OVERALL GRADE:${grade} (${numOfQuizQuestions} of 5 responses correct)\n>>> Status: ${canStatus} <<<`);
   if (canStatus === "PASSED") {
     console.log(`\nWell, congratulations cadet ${candidateName}!\nYou have been promoted to the rank of Private.\nIt'll be an honor to fight along side you brother!`)
   } else {
